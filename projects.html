@@ -106,8 +106,8 @@
                 </div>
                 <div class="project-tech">
                     <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Pandas</span>
-                    <span class="tech-tag">Numpy</span>
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Distributed Computing</span>
                 </div>
                 <div class="project-links">
                     <a href="https://github.com/AlvisYan2025/Distributed-ML-Pipeline" class="project-link">
@@ -127,9 +127,8 @@
                     A performance analysis of the MoE kernel on A100 GPUs at NERSC Perlmutter. Including benchmark experiments and performance analysis, focusing on the sensitivity of the kernel to different load imbalance rates under various settings.
                 </div>
                 <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Pandas</span>
-                    <span class="tech-tag">Numpy</span>
+                    <span class="tech-tag">Bash Scripting • Python</span>
+                    <span class="tech-tag">GPU Benchmarking</span>
                 </div>
                 <div class="project-links">
                     <a href="https://github.com/AlvisYan2025/MoE_Kernel_Performance_Analysis" class="project-link">
@@ -351,7 +350,6 @@
             }
         });
 
-        // Cursor Trail Effect
         const cursorTrail = [];
         const trailLength = 12;
         let mouseX = 0;
@@ -359,7 +357,6 @@
         let trailX = 0;
         let trailY = 0;
 
-        // Create cursor trail particles
         for (let i = 0; i < trailLength; i++) {
             const particle = document.createElement('div');
             particle.className = `cursor-trail particle-${(i % 5) + 1}`;
@@ -375,13 +372,11 @@
             });
         }
 
-        // Update mouse position
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
 
-        // Animate trail particles
         function animateTrail() {
             trailX += (mouseX - trailX) * 0.1;
             trailY += (mouseY - trailY) * 0.1;
@@ -411,7 +406,6 @@
             requestAnimationFrame(animateTrail);
         }
 
-        // Hide trail when mouse leaves window
         document.addEventListener('mouseleave', () => {
             cursorTrail.forEach(particle => {
                 particle.element.style.opacity = '0';
@@ -424,7 +418,6 @@
             });
         });
 
-        // Start animation
         animateTrail();
     </script>
 </body>
