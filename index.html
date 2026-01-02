@@ -474,8 +474,8 @@
         // Animation loop - always smooth, no special scroll handling needed
         function animateTrail() {
             // Smoothly interpolate the lead position toward target
-            trailX += (targetX - trailX) * 0.15;
-            trailY += (targetY - trailY) * 0.15;
+            trailX += (targetX - trailX) * 0.4;
+            trailY += (targetY - trailY) * 0.4;
 
             // Update each particle
             cursorTrail.forEach((particle, index) => {
@@ -486,13 +486,13 @@
                 } else {
                     // Each subsequent particle follows the one before it
                     const prevParticle = cursorTrail[index - 1];
-                    particle.targetX += (prevParticle.x - particle.targetX) * 0.35;
-                    particle.targetY += (prevParticle.y - particle.targetY) * 0.35;
+                    particle.targetX += (prevParticle.x - particle.targetX) * 0.6;
+                    particle.targetY += (prevParticle.y - particle.targetY) * 0.6;
                 }
 
                 // Smooth movement toward target
-                particle.x += (particle.targetX - particle.x) * 0.45;
-                particle.y += (particle.targetY - particle.y) * 0.45;
+                particle.x += (particle.targetX - particle.x) * 0.7;
+                particle.y += (particle.targetY - particle.y) * 0.7;
 
                 // Calculate visual properties
                 const scale = 1 - (index / trailLength) * 0.5;
