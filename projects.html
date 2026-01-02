@@ -350,6 +350,82 @@
                 ticking = true;
             }
         });
+
+        // Cursor Trail Effect
+        const cursorTrail = [];
+        const trailLength = 12;
+        let mouseX = 0;
+        let mouseY = 0;
+        let trailX = 0;
+        let trailY = 0;
+
+        // Create cursor trail particles
+        for (let i = 0; i < trailLength; i++) {
+            const particle = document.createElement('div');
+            particle.className = `cursor-trail particle-${(i % 5) + 1}`;
+            particle.style.opacity = (trailLength - i) / trailLength * 0.6;
+            particle.style.transform = `translate(-50%, -50%) scale(${1 - i * 0.08})`;
+            document.body.appendChild(particle);
+            cursorTrail.push({
+                element: particle,
+                x: 0,
+                y: 0,
+                targetX: 0,
+                targetY: 0
+            });
+        }
+
+        // Update mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Animate trail particles
+        function animateTrail() {
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+
+            cursorTrail.forEach((particle, index) => {
+                if (index === 0) {
+                    particle.targetX = trailX;
+                    particle.targetY = trailY;
+                } else {
+                    const prevParticle = cursorTrail[index - 1];
+                    particle.targetX += (prevParticle.x - particle.targetX) * 0.3;
+                    particle.targetY += (prevParticle.y - particle.targetY) * 0.3;
+                }
+
+                particle.x += (particle.targetX - particle.x) * 0.4;
+                particle.y += (particle.targetY - particle.y) * 0.4;
+
+                const scale = 1 - (index / trailLength) * 0.5;
+                const opacity = (trailLength - index) / trailLength * 0.6;
+                
+                particle.element.style.left = particle.x + 'px';
+                particle.element.style.top = particle.y + 'px';
+                particle.element.style.opacity = opacity;
+                particle.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            });
+
+            requestAnimationFrame(animateTrail);
+        }
+
+        // Hide trail when mouse leaves window
+        document.addEventListener('mouseleave', () => {
+            cursorTrail.forEach(particle => {
+                particle.element.style.opacity = '0';
+            });
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursorTrail.forEach((particle, index) => {
+                particle.element.style.opacity = (trailLength - index) / trailLength * 0.6;
+            });
+        });
+
+        // Start animation
+        animateTrail();
     </script>
 </body>
 </html>

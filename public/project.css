@@ -545,6 +545,65 @@ nav.scrolled {
     }
 }
 
+/* Cursor Trail Effect */
+.cursor-trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-trail::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, currentColor 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.cursor-trail.particle-1 {
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+}
+
+.cursor-trail.particle-2 {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, var(--secondary), var(--accent));
+    box-shadow: 0 0 12px var(--secondary), 0 0 24px var(--secondary);
+}
+
+.cursor-trail.particle-3 {
+    width: 4px;
+    height: 4px;
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+    box-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent);
+}
+
+.cursor-trail.particle-4 {
+    width: 5px;
+    height: 5px;
+    background: var(--primary);
+    box-shadow: 0 0 6px var(--primary);
+}
+
+.cursor-trail.particle-5 {
+    width: 7px;
+    height: 7px;
+    background: var(--secondary);
+    box-shadow: 0 0 10px var(--secondary);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .featured-project {
@@ -568,5 +627,10 @@ nav.scrolled {
     .filter-btn {
         padding: 8px 20px;
         font-size: 0.8rem;
+    }
+    
+    /* Disable cursor trail on mobile for performance */
+    .cursor-trail {
+        display: none;
     }
 }
