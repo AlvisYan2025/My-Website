@@ -362,7 +362,7 @@
             particle.className = `cursor-trail particle-${(i % 5) + 1}`;
             particle.style.opacity = (trailLength - i) / trailLength * 0.6;
             particle.style.transform = `translate(-50%, -50%) scale(${1 - i * 0.08})`;
-            document.body.appendChild(particle);
+            document.documentElement.appendChild(particle);
             cursorTrail.push({
                 element: particle,
                 x: 0,
@@ -377,31 +377,84 @@
             mouseY = e.clientY;
         });
 
-        function animateTrail() {
-            trailX += (mouseX - trailX) * 0.1;
-            trailY += (mouseY - trailY) * 0.1;
+        let isScrolling = false;
+        let scrollTimeout;
 
-            cursorTrail.forEach((particle, index) => {
-                if (index === 0) {
-                    particle.targetX = trailX;
-                    particle.targetY = trailY;
-                } else {
-                    const prevParticle = cursorTrail[index - 1];
-                    particle.targetX += (prevParticle.x - particle.targetX) * 0.3;
-                    particle.targetY += (prevParticle.y - particle.targetY) * 0.3;
+        document.addEventListener('wheel', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            isScrolling = true;
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 150);
+        });
+
+        document.addEventListener('scroll', () => {
+            isScrolling = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+                if (mouseX !== 0 || mouseY !== 0) {
+                    trailX = mouseX;
+                    trailY = mouseY;
+                    
+                    cursorTrail.forEach((particle, index) => {
+                        particle.x = mouseX;
+                        particle.y = mouseY;
+                        particle.targetX = mouseX;
+                        particle.targetY = mouseY;
+                    });
                 }
+            }, 150);
+        }, true);
 
-                particle.x += (particle.targetX - particle.x) * 0.4;
-                particle.y += (particle.targetY - particle.y) * 0.4;
-
-                const scale = 1 - (index / trailLength) * 0.5;
-                const opacity = (trailLength - index) / trailLength * 0.6;
+        function animateTrail() {
+            if (isScrolling) {
+                trailX = mouseX;
+                trailY = mouseY;
                 
-                particle.element.style.left = particle.x + 'px';
-                particle.element.style.top = particle.y + 'px';
-                particle.element.style.opacity = opacity;
-                particle.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
-            });
+                cursorTrail.forEach((particle, index) => {
+                    particle.x = mouseX;
+                    particle.y = mouseY;
+                    particle.targetX = mouseX;
+                    particle.targetY = mouseY;
+
+                    const scale = 1 - (index / trailLength) * 0.5;
+                    const opacity = (trailLength - index) / trailLength * 0.6;
+                    
+                    particle.element.style.left = particle.x + 'px';
+                    particle.element.style.top = particle.y + 'px';
+                    particle.element.style.opacity = opacity;
+                    particle.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                });
+            } else {
+                trailX += (mouseX - trailX) * 0.1;
+                trailY += (mouseY - trailY) * 0.1;
+
+                cursorTrail.forEach((particle, index) => {
+                    if (index === 0) {
+                        particle.targetX = trailX;
+                        particle.targetY = trailY;
+                    } else {
+                        const prevParticle = cursorTrail[index - 1];
+                        particle.targetX += (prevParticle.x - particle.targetX) * 0.3;
+                        particle.targetY += (prevParticle.y - particle.targetY) * 0.3;
+                    }
+
+                    particle.x += (particle.targetX - particle.x) * 0.4;
+                    particle.y += (particle.targetY - particle.y) * 0.4;
+
+                    const scale = 1 - (index / trailLength) * 0.5;
+                    const opacity = (trailLength - index) / trailLength * 0.6;
+                    
+                    particle.element.style.left = particle.x + 'px';
+                    particle.element.style.top = particle.y + 'px';
+                    particle.element.style.opacity = opacity;
+                    particle.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                });
+            }
 
             requestAnimationFrame(animateTrail);
         }

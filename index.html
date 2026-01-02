@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alvis' Secret Base</title>
     <link rel="stylesheet" type="text/css" href="public/style.css">
+    <style>
+        /* Ensure cursor trail z-index and pointer-events */
+        .cursor-trail {
+            pointer-events: none !important;
+            z-index: 9999 !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Floating Shapes -->
@@ -103,9 +110,9 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>Software Engineer/Machine Learning Engineer Intern@EyeSpace LLC.</h3>
-                    <p>●Design and engage in building a platform for ophthalmologists to manage patients’ data and reservations.<br>
-                        ●Built deep learning models to predict vault sizes (the space or distance between a contact lens or intraocular lens and the cornea) with OCT images (a kind of X-ray scan of a patient’s eyeballs). Achieved around 90% prediction accuracy within 400 microns for Resnet based models. <br>
-                        ●Develop, optimize, and maintain company’s web application (https://iclvaultapi.streamlit.app/).<br>
+                    <p>●Design and engage in building a platform for ophthalmologists to manage patients' data and reservations.<br>
+                        ●Built deep learning models to predict vault sizes (the space or distance between a contact lens or intraocular lens and the cornea) with OCT images (a kind of X-ray scan of a patient's eyeballs). Achieved around 90% prediction accuracy within 400 microns for Resnet based models. <br>
+                        ●Develop, optimize, and maintain company's web application (https://iclvaultapi.streamlit.app/).<br>
                     </p>
                     <div class="project-tech" style="color: gold;">
                         <span>JavaScript • HTML • Pytorch • Transfer Learning • TensorFlow • Keras </span>
@@ -294,52 +301,103 @@
             }
         });
 
+        // ============================================
+        // FIXED CURSOR TRAIL - follows during scroll
+        // ============================================
         const cursorTrail = [];
         const trailLength = 12;
-        let mouseX = 0;
-        let mouseY = 0;
-        let trailX = 0;
-        let trailY = 0;
+        
+        // Current interpolated position (viewport coordinates for position:fixed)
+        let trailX = window.innerWidth / 2;
+        let trailY = window.innerHeight / 2;
+        
+        // Last known mouse position (viewport coordinates - from events)
+        let lastKnownMouseX = window.innerWidth / 2;
+        let lastKnownMouseY = window.innerHeight / 2;
+        
+        // Target position for the trail (viewport coordinates)
+        let targetX = trailX;
+        let targetY = trailY;
 
+        // Create trail particles
         for (let i = 0; i < trailLength; i++) {
             const particle = document.createElement('div');
             particle.className = `cursor-trail particle-${(i % 5) + 1}`;
             particle.style.opacity = (trailLength - i) / trailLength * 0.6;
             particle.style.transform = `translate(-50%, -50%) scale(${1 - i * 0.08})`;
-            document.body.appendChild(particle);
+            document.documentElement.appendChild(particle);
             cursorTrail.push({
                 element: particle,
-                x: 0,
-                y: 0,
-                targetX: 0,
-                targetY: 0
+                x: lastKnownMouseX,
+                y: lastKnownMouseY,
+                targetX: lastKnownMouseX,
+                targetY: lastKnownMouseY
             });
         }
 
+        // Track mouse position globally (viewport coordinates for position:fixed)
         document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+            lastKnownMouseX = e.clientX;
+            lastKnownMouseY = e.clientY;
+            targetX = e.clientX;
+            targetY = e.clientY;
         });
-        function animateTrail() {
-            trailX += (mouseX - trailX) * 0.1;
-            trailY += (mouseY - trailY) * 0.1;
 
+        // Update target during wheel scroll (has coordinates)
+        document.addEventListener('wheel', (e) => {
+            lastKnownMouseX = e.clientX;
+            lastKnownMouseY = e.clientY;
+            targetX = e.clientX;
+            targetY = e.clientY;
+        }, { passive: true });
+
+        // During scroll, aggressively keep particles aligned with mouse
+        document.addEventListener('scroll', () => {
+            targetX = lastKnownMouseX;
+            targetY = lastKnownMouseY;
+            
+            // Also immediately update trailX/trailY to reduce lag during scroll
+            trailX = lastKnownMouseX;
+            trailY = lastKnownMouseY;
+            
+            // Snap all particles closer to mouse position during scroll
+            cursorTrail.forEach((particle, index) => {
+                particle.targetX = lastKnownMouseX;
+                particle.targetY = lastKnownMouseY;
+                // Quickly interpolate toward mouse
+                particle.x += (lastKnownMouseX - particle.x) * 0.5;
+                particle.y += (lastKnownMouseY - particle.y) * 0.5;
+            });
+        }, true);
+
+        // Animation loop - always smooth, no special scroll handling needed
+        function animateTrail() {
+            // Smoothly interpolate the lead position toward target
+            trailX += (targetX - trailX) * 0.15;
+            trailY += (targetY - trailY) * 0.15;
+
+            // Update each particle
             cursorTrail.forEach((particle, index) => {
                 if (index === 0) {
+                    // First particle follows the interpolated position
                     particle.targetX = trailX;
                     particle.targetY = trailY;
                 } else {
+                    // Each subsequent particle follows the one before it
                     const prevParticle = cursorTrail[index - 1];
-                    particle.targetX += (prevParticle.x - particle.targetX) * 0.3;
-                    particle.targetY += (prevParticle.y - particle.targetY) * 0.3;
+                    particle.targetX += (prevParticle.x - particle.targetX) * 0.35;
+                    particle.targetY += (prevParticle.y - particle.targetY) * 0.35;
                 }
 
-                particle.x += (particle.targetX - particle.x) * 0.4;
-                particle.y += (particle.targetY - particle.y) * 0.4;
+                // Smooth movement toward target
+                particle.x += (particle.targetX - particle.x) * 0.45;
+                particle.y += (particle.targetY - particle.y) * 0.45;
 
+                // Calculate visual properties
                 const scale = 1 - (index / trailLength) * 0.5;
                 const opacity = (trailLength - index) / trailLength * 0.6;
                 
+                // Apply styles
                 particle.element.style.left = particle.x + 'px';
                 particle.element.style.top = particle.y + 'px';
                 particle.element.style.opacity = opacity;
@@ -349,18 +407,25 @@
             requestAnimationFrame(animateTrail);
         }
 
+        // Handle mouse leaving/entering the window
         document.addEventListener('mouseleave', () => {
             cursorTrail.forEach(particle => {
                 particle.element.style.opacity = '0';
             });
         });
 
-        document.addEventListener('mouseenter', () => {
+        document.addEventListener('mouseenter', (e) => {
+            lastKnownMouseX = e.clientX;
+            lastKnownMouseY = e.clientY;
+            targetX = e.clientX;
+            targetY = e.clientY;
+            
             cursorTrail.forEach((particle, index) => {
                 particle.element.style.opacity = (trailLength - index) / trailLength * 0.6;
             });
         });
 
+        // Start the animation
         animateTrail();
     </script>
 </body>
