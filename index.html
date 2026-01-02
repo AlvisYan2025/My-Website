@@ -107,35 +107,56 @@
     <section id="projects" class="section">
         <div class="container">
             <h2 class="section-title">Experience/Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Software Engineer/Machine Learning Engineer Intern@EyeSpace LLC.</h3>
-                    <p>●Design and engage in building a platform for ophthalmologists to manage patients' data and reservations.<br>
-                        ●Built deep learning models to predict vault sizes (the space or distance between a contact lens or intraocular lens and the cornea) with OCT images (a kind of X-ray scan of a patient's eyeballs). Achieved around 90% prediction accuracy within 400 microns for Resnet based models. <br>
-                        ●Develop, optimize, and maintain company's web application (https://iclvaultapi.streamlit.app/).<br>
-                    </p>
-                    <div class="project-tech" style="color: gold;">
-                        <span>JavaScript • HTML • Pytorch • Transfer Learning • TensorFlow • Keras </span>
+            <div class="projects-carousel-wrapper">
+                <button class="carousel-arrow carousel-arrow-left" aria-label="Previous">
+                    <span>←</span>
+                </button>
+                <div class="projects-carousel-viewport">
+                    <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Software Engineer/Machine Learning Engineer Intern@EyeSpace LLC.</h3>
+                        <p>●Design and engage in building a platform for ophthalmologists to manage patients' data and reservations.<br>
+                            ●Built deep learning models to predict vault sizes (the space or distance between a contact lens or intraocular lens and the cornea) with OCT images (a kind of X-ray scan of a patient's eyeballs). Achieved around 90% prediction accuracy within 400 microns for Resnet based models. <br>
+                            ●Develop, optimize, and maintain company's web application (https://iclvaultapi.streamlit.app/).<br>
+                        </p>
+                        <div class="project-tech" style="color: gold;">
+                            <span>JavaScript • HTML • Pytorch • Transfer Learning • TensorFlow • Keras </span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Software Engineer Intern@XenonHealth</h3>
+                        <p>
+                            ●Developed a medical record extraction system with a team of engineers that extracts information from medical records (such as billing, payments, and patient information). <br>
+                            ●Analyzed, conducted benchmarking experiments on, and optimized the machine learning pipeline that handles payment information extraction from PDF files. Implemented a filtering-extraction two-phase pipeline with automated accuracy tests. Achieved 100% accuracy on a 481-page test set in the latest design. <br>
+                            ●Added both front-end and back-end features for billing claim creation, review and submission. Enabled end-to-end claim processing within the platform.  <br>
+                        </p>
+                        <div class="project-tech" style="color: gold;">
+                            <span>Backend Development • PostgreSQL • Docker • React</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Manager Intern/Volunteer@Food Charity Network</h3>
+                        <p>
+                            ●Coordinated engineering teams to build an application to connect local stores and food donors to local charitable and non-profit organizations. <br>
+                            ●Oversaw the development process, manage sprints, identified blockers and constraints, and tracked all activities and changes using Excel. <br>
+                            ●Planned quarterly board meetings, prepared and delivered quarterly presentations to stakeholders using Google Slides. <br>
+                        </p>
+                        <div class="project-tech" style="color: gold;">
+                            <span>Project Management • Communication • Excel</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Could Be Your Company!</h3>
+                        <p>Check links below to reach out to me!</p>
+                        <div class="project-tech" style="color: gold;">
+                            <span></span>
+                        </div>
+                    </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <h3>Software Engineer Intern@XenonHealth</h3>
-                    <p>
-                        ●Developed a medical record extraction system with a team of engineers that extracts information from medical records (such as billing, payments, and patient information). <br>
-                        ●Analyzed, conducted benchmarking experiments on, and optimized the machine learning pipeline that handles payment information extraction from PDF files. Implemented a filtering-extraction two-phase pipeline with automated accuracy tests. Achieved 100% accuracy on a 481-page test set in the latest design. <br>
-                        ●Added both front-end and back-end features for billing claim creation, review and submission. Enabled end-to-end claim processing within the platform.  <br>
-                    </p>
-                    <div class="project-tech" style="color: gold;">
-                        <span>Backend Development • PostgreSQL • Docker • React</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Could Be Your Company!</h3>
-                    <p>Check links below to reach out to me!</p>
-                    <div class="project-tech" style="color: gold;">
-                        <span></span>
-                    </div>
-                </div>
+                <button class="carousel-arrow carousel-arrow-right" aria-label="Next">
+                    <span>→</span>
+                </button>
             </div>
             <div style="text-align: center; margin-top: 60px;">
                 <a href="#contact" class="cta-button">
@@ -221,6 +242,75 @@
                 }
             });
         });
+
+        // Projects Carousel
+        const projectsViewport = document.querySelector('.projects-carousel-viewport');
+        const projectsGrid = document.querySelector('.projects-grid');
+        const projectCards = document.querySelectorAll('.project-card');
+        const leftArrow = document.querySelector('.carousel-arrow-left');
+        const rightArrow = document.querySelector('.carousel-arrow-right');
+        
+        if (projectsViewport && projectsGrid && projectCards.length > 0 && leftArrow && rightArrow) {
+            const cardsPerView = 3;
+            const totalCards = projectCards.length;
+            
+            // Hide arrows if there are 3 or fewer cards
+            if (totalCards <= cardsPerView) {
+                leftArrow.style.display = 'none';
+                rightArrow.style.display = 'none';
+            } else {
+                let currentIndex = 0;
+                const maxIndex = Math.max(0, totalCards - cardsPerView);
+
+                function updateCarousel() {
+                    // Calculate the translateX value based on viewport width
+                    const viewportWidth = projectsViewport.offsetWidth;
+                    const gap = 30;
+                    const cardWidth = (viewportWidth - (cardsPerView - 1) * gap) / cardsPerView;
+                    const translateX = -currentIndex * (cardWidth + gap);
+                    projectsGrid.style.transform = `translateX(${translateX}px)`;
+                    
+                    // Ensure grid width is set to show all cards in a row
+                    const totalGridWidth = totalCards * cardWidth + (totalCards - 1) * gap;
+                    projectsGrid.style.width = `${totalGridWidth}px`;
+                    projectsGrid.style.gridTemplateColumns = `repeat(${totalCards}, ${cardWidth}px)`;
+
+                    // Update arrow states
+                    leftArrow.disabled = currentIndex === 0;
+                    rightArrow.disabled = currentIndex >= maxIndex;
+                }
+
+                leftArrow.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+
+                rightArrow.addEventListener('click', () => {
+                    if (currentIndex < maxIndex) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+
+                // Initialize
+                updateCarousel();
+
+                // Handle window resize
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        // Ensure currentIndex doesn't exceed maxIndex after resize
+                        if (currentIndex > maxIndex) {
+                            currentIndex = maxIndex;
+                        }
+                        updateCarousel();
+                    }, 250);
+                });
+            }
+        }
 
         // Intersection Observer for camera movement effect
         const observerOptions = {
