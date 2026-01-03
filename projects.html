@@ -430,8 +430,8 @@
                     particle.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
                 });
             } else {
-                trailX += (mouseX - trailX) * 0.1;
-                trailY += (mouseY - trailY) * 0.1;
+                trailX += (mouseX - trailX) * 0.4;
+                trailY += (mouseY - trailY) * 0.4;
 
                 cursorTrail.forEach((particle, index) => {
                     if (index === 0) {
@@ -439,12 +439,12 @@
                         particle.targetY = trailY;
                     } else {
                         const prevParticle = cursorTrail[index - 1];
-                        particle.targetX += (prevParticle.x - particle.targetX) * 0.3;
-                        particle.targetY += (prevParticle.y - particle.targetY) * 0.3;
+                        particle.targetX += (prevParticle.x - particle.targetX) * 0.6;
+                        particle.targetY += (prevParticle.y - particle.targetY) * 0.6;
                     }
 
-                    particle.x += (particle.targetX - particle.x) * 0.4;
-                    particle.y += (particle.targetY - particle.y) * 0.4;
+                    particle.x += (particle.targetX - particle.x) * 0.7;
+                    particle.y += (particle.targetY - particle.y) * 0.7;
 
                     const scale = 1 - (index / trailLength) * 0.5;
                     const opacity = (trailLength - index) / trailLength * 0.6;
