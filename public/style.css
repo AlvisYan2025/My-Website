@@ -481,6 +481,14 @@ nav.scrolled {
     animation-delay: 0.3s;
 }
 
+.contact-links.in-view .contact-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.contact-links.in-view .contact-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
 @keyframes slideInRotate {
     0% {
         opacity: 0;
