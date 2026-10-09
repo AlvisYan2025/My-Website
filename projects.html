@@ -1,526 +1,322 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Alvis' Secret Base</title>
-        <link rel="icon" type="image/svg+xml" href="icon.svg">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-        <link rel="icon" type="image/png" href="icon.png">
-        <link rel="apple-touch-icon" href="icon.png">
-        <link rel="stylesheet", href="public/project.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Alvis Yan</title>
+    <meta name="description" content="Selected projects and experience by Alvis Yan: Asterloom.ai, ML research, distributed systems, GPU performance, and full-stack web.">
+    <meta name="theme-color" content="#0b0d12">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/style.css">
+</head>
 <body>
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="ambient" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
     </div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
-
-    <section class="projects-hero">
-        <div class="hero-content">
-            <h1>My Projects</h1>
-            <a href="index.html" class="cta-button">Go Back To Main Page</a>
+    <header class="nav scrolled" id="navbar" data-always-scrolled>
+        <div class="container nav-inner">
+            <a href="index.html" class="wordmark" aria-label="Alvis Yan, home">
+                <span class="mark"></span>
+                <span>Alvis Yan</span>
+            </a>
+            <nav class="nav-links" id="nav-links" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#experience">Experience</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="projects.html" class="nav-cta" aria-current="page">Projects</a>
+            </nav>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </section>
+    </header>
 
-    <!-- Filter Bar -->
-    <!--
-    <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">
-            <span>All Projects</span>
-        </button>
-        <button class="filter-btn" data-filter="web">
-            <span>Web Apps</span>
-        </button>
-        <button class="filter-btn" data-filter="mobile">
-            <span>Mobile</span>
-        </button>
-        <button class="filter-btn" data-filter="ai">
-            <span>AI/ML</span>
-        </button>
-        <button class="filter-btn" data-filter="game">
-            <span>Games</span>
-        </button>
-    </div>
-    -->
-    <!-- Projects Container -->
-    <div class="projects-container">
-        <div class="projects-grid">
-            <div class="project-card featured-project" data-category="web ai">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>ML For Mutual Fund Selection</h3>
-                    </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    This is partially based on <a href="https://www.sciencedirect.com/science/article/pii/S0304405X23001253" style="color: gold;">this paper</a>, aiming to replicate and test some of the methods mentioned in this paper and apply them to different model structures, which are used in Mutual Fund Protfolio Construction.
-                    <br>
-                    ● Constructed PyTorch deep-learning models to predict abnormal returns of bond funds and identify groups of funds that are expected to have higher/lower returns. Performed data preprocessing and hyperparameter tuning. <br>
-                    ● Defined deep learning models in the project, visualized fund performance, calculated sensitivities and Sharpe ratios, and performed data analysis to identify investment opportunities and conduct risk assessment using Pandas, NumPy, and Matplotlib.
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">Pytorch</span>
-                    <span class="tech-tag">Numpy&Pandas</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/AlvisYan2025/MutualFundProtfolilSelection" class="project-link">
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://github.com/AlvisYan2025/sensitivityanalysisfunctions" class="project-link">
-                        <span>Analysis Code Dumpster</span>
-                    </a>
-                </div>
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <a href="index.html" class="btn-text back reveal">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
+                    Back home
+                </a>
+                <p class="eyebrow reveal" style="--delay: 60ms"><span>Selected Work</span><span class="dash"></span><span>2022 — 2026</span></p>
+                <h1 class="reveal" style="--delay: 120ms">Projects & <em>experience</em>.</h1>
+                <p class="lede reveal" style="--delay: 180ms"><span class="count" data-count>12</span> pieces of work across machine learning, distributed systems, GPU performance, and full-stack web — plus a few roles along the way.</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="filters reveal" role="group" aria-label="Filter projects">
+                <button class="filter active" data-filter="all">All</button>
+                <button class="filter" data-filter="ml">ML & AI</button>
+                <button class="filter" data-filter="systems">Systems</button>
+                <button class="filter" data-filter="web">Web</button>
+                <button class="filter" data-filter="experience">Experience</button>
             </div>
 
-            <div class="project-card" data-category="web">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>Blockchain-based Carbon Market</h3>
+            <div class="projects-grid" id="projects">
+                <article class="card project featured reveal" data-category="web ml systems">
+                    <div class="card-top">
+                        <div>
+                            <p class="featured-label">Featured</p>
+                            <h3>Asterloom.ai</h3>
+                            <p class="when">Project Developer · 2025 — 2026</p>
+                        </div>
+                        <span class="status">Completed</span>
                     </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    <a class="time-label">August 2025 - December 2025</a><br>
-                    ●Participated in the development and enhancement of a carbon credit trading market based on Hyperledger Fabric Blockchain with a full-stack architecture, led the back-end team. 
-                    ●Designed and integrated a hybrid blockchain-PostgreSQL database structure where Hyperledger Fabric serves as the source of truth for carbon credit transactions, and PostgreSQL acts as a queryable replica for backup. <br>
+                    <p class="desc">A full-stack AI writing platform for novel and script generation with versioned community content sharing, available on web and Android with a responsive UI.</p>
+                    <ul class="bullets">
+                        <li>Built backend services and APIs in FastAPI for AI-assisted writing workflows, versioned content management, and community features, following a hexagonal architecture.</li>
+                        <li>Used PostgreSQL/MongoDB, Redis, SSE streaming, and ARQ asynchronous jobs on a cloud-native AWS deployment.</li>
+                        <li>Developed an Android client in Kotlin covering the core application workflows.</li>
+                    </ul>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">Kotlin</span><span class="tag">AWS</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://asterloom.ai" target="_blank" rel="noopener" class="btn-text">Visit asterloom.ai <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                            <a href="https://github.com/AlvisYan2025/StarWeaver" target="_blank" rel="noopener" class="btn-text">GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                        </div>
+                    </div>
+                </article>
 
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Hyperledger Fabric Blockchain</span>
-                    <span class="tech-tag">Backend Development</span>
-                </div>
-                <div class="project-links">
-                </div>
-            </div>
+                <article class="card project featured reveal" data-category="ml experience">
+                    <div class="card-top">
+                        <div>
+                            <p class="featured-label">Research · New York University</p>
+                            <h3>Bond Fund Portfolio Management with Machine Learning</h3>
+                            <p class="when">Research Assistant · May 2024 — May 2025</p>
+                        </div>
+                        <span class="status">Completed</span>
+                    </div>
+                    <div class="desc">
+                        <p>A research project applying machine learning to mutual fund portfolio construction and data-driven investment decisions, partially based on <a href="https://www.sciencedirect.com/science/article/pii/S0304405X23001253" target="_blank" rel="noopener">this paper</a>.</p>
+                    </div>
+                    <ul class="bullets">
+                        <li>Constructed PyTorch deep learning models to predict abnormal returns of bond funds on real-world financial time series from 1995 to 2023, and built the preprocessing pipeline with NumPy and Pandas.</li>
+                        <li>Evaluated models with financial metrics such as sensitivity analysis and Sharpe ratios, visualized results in Matplotlib, and analyzed the output to identify investment opportunities and assess risk.</li>
+                    </ul>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">NumPy & Pandas</span><span class="tag">Matplotlib</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/AlvisYan2025/MutualFundProtfolilSelection" target="_blank" rel="noopener" class="btn-text">GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                            <a href="https://github.com/AlvisYan2025/sensitivityanalysisfunctions" target="_blank" rel="noopener" class="btn-text">Analysis code <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                        </div>
+                    </div>
+                </article>
 
-            <div class="project-card" data-category="web">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>StarWeaver</h3>
+                <article class="card project reveal" data-category="systems web">
+                    <div class="card-top">
+                        <div>
+                            <h3>Blockchain-based Carbon Market</h3>
+                            <p class="when">August 2025 — December 2025</p>
+                        </div>
+                        <span class="status">Completed</span>
                     </div>
-                    <div class="project-status in-progress">In Progress</div>
-                </div>
-                <div class="project-description">
-                    A AI-novel platform on which you can generate stories and comic books with AI. 
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">MongoDB</span>
-                </div>
-                <div class="project-links">
-                    <a href="http://24.144.116.80:3000/" class="project-link">
-                        <span>Preview</span>
-                    </a>
-                    <a href="https://github.com/AlvisYan2025/StarWeaver" class="project-link">
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-            <div class="project-card" data-category="web">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>Distributed ML Pipeline</h3>
+                    <ul class="bullets">
+                        <li>Developed and enhanced a carbon credit trading market built on Hyperledger Fabric with a full-stack architecture; led the back-end team.</li>
+                        <li>Designed a hybrid blockchain–PostgreSQL data layer where Fabric is the source of truth for transactions and PostgreSQL serves as a queryable replica for backup.</li>
+                    </ul>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Hyperledger Fabric</span><span class="tag">PostgreSQL</span><span class="tag">Backend</span>
+                        </div>
                     </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    A distributed machine learning pipeline for LLM inference. With support for multi-node, multi-GPU, and multi-process, with features like dynamic batching, fault tolerance, and load balancing.
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">C++</span>
-                    <span class="tech-tag">Distributed Computing</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/AlvisYan2025/Distributed-ML-Pipeline" class="project-link">
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
+                </article>
 
-            <div class="project-card" data-category="web">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>MoE Kernel Performance Analysis on A100 GPUs (NERSC Perlmutter)</h3>
+                <article class="card project reveal" data-category="systems ml">
+                    <div class="card-top">
+                        <div>
+                            <h3>Distributed ML Pipeline</h3>
+                        </div>
+                        <span class="status">Completed</span>
                     </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    A performance analysis of the MoE kernel on A100 GPUs at NERSC Perlmutter. Including benchmark experiments and performance analysis, focusing on the sensitivity of the kernel to different load imbalance rates under various settings.
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Bash Scripting • Python</span>
-                    <span class="tech-tag">GPU Benchmarking</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/AlvisYan2025/MoE_Kernel_Performance_Analysis" class="project-link">
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
+                    <p class="desc">A distributed machine learning pipeline for LLM inference with multi-node, multi-GPU, and multi-process support, featuring dynamic batching, fault tolerance, and load balancing.</p>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Python</span><span class="tag">C++</span><span class="tag">Distributed Computing</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/AlvisYan2025/Distributed-ML-Pipeline" target="_blank" rel="noopener" class="btn-text">GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                        </div>
+                    </div>
+                </article>
 
-            <div class="project-card" data-category="mobile">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>LSTM with checkpoint for portfolio selection</h3>
+                <article class="card project reveal" data-category="systems ml">
+                    <div class="card-top">
+                        <div>
+                            <h3>MoE Kernel Performance on A100 GPUs</h3>
+                            <p class="when">NERSC Perlmutter</p>
+                        </div>
+                        <span class="status">Completed</span>
                     </div>
-                    <div class="project-status in-progress">In Progress</div>
-                </div>
-                <div class="project-description">
-                    modified traditional LSTM structures to optimize the long-term dependency problem in machine learning style portfolio construction
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Pytorch</span>
-                    <span class="tech-tag">Numpy&Pandas</span>
-                </div>
-                <div class="project-links">
-                </div>
-            </div>
+                    <p class="desc">A performance analysis of the Mixture-of-Experts kernel on A100 GPUs at NERSC Perlmutter, including benchmark experiments focused on the kernel's sensitivity to load imbalance across a range of configurations.</p>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">GPU Benchmarking</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/AlvisYan2025/MoE_Kernel_Performance_Analysis" target="_blank" rel="noopener" class="btn-text">GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                        </div>
+                    </div>
+                </article>
 
-            <div class="project-card" data-category="game">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>NYU Holodeck - Vertically Integrated Program</h3>
+                <article class="card project reveal" data-category="ml">
+                    <div class="card-top">
+                        <div>
+                            <h3>LSTM with Checkpoints for Portfolio Selection</h3>
+                        </div>
+                        <span class="status in-progress">In progress</span>
                     </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    <a class="time-label">Jan 2022 - May 2022</a><br>
-                    ●Participated in the CI/CD team of NYU Holodeck (High Speed Research Network)<br>
-                    ●Deployed applications and services with Docker
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Kubernetes</span>
-                </div>
-            </div>
+                    <p class="desc">Modified traditional LSTM structures to address the long-term dependency problem in machine-learning-driven portfolio construction.</p>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">NumPy & Pandas</span>
+                        </div>
+                    </div>
+                </article>
 
-            <div class="project-card" data-category="ai">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>VoiceQA</h3>
+                <article class="card project reveal" data-category="systems experience">
+                    <div class="card-top">
+                        <div>
+                            <h3>NYU Holodeck — Vertically Integrated Program</h3>
+                            <p class="when">January 2022 — May 2022</p>
+                        </div>
+                        <span class="status">Completed</span>
                     </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    An Easy-To-Use and simple voice question-answer platform for under-aged children.
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Javascript</span>
-                    <span class="tech-tag">Google Speech-To-Text API</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">Docker</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/AlvisYan2025/voiceq-a" class="project-link">
-                        <span>Github</span>
-                    </a>
-                </div>
-            </div>
+                    <ul class="bullets">
+                        <li>Member of the CI/CD team for NYU Holodeck (High Speed Research Network).</li>
+                        <li>Deployed applications and services with Docker.</li>
+                    </ul>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Docker</span><span class="tag">Kubernetes</span>
+                        </div>
+                    </div>
+                </article>
 
-            <div class="project-card" data-category="web">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>Quantitative Trading Project</h3>
+                <article class="card project reveal" data-category="ml web">
+                    <div class="card-top">
+                        <div>
+                            <h3>VoiceQA</h3>
+                        </div>
+                        <span class="status">Completed</span>
                     </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    A simple demo notebook for quantitative trading including data-filtering and preliminary protfolio management.
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Pandas</span>
-                    <span class="tech-tag">Numpy</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/AlvisYan2025/tushare_analysis" class="project-link">
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-            <div class="project-card" data-category="web">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>Teaching Assisstant Grader@NYU Courant</h3>
+                    <p class="desc">An easy-to-use voice question-and-answer platform designed for young children.</p>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Google Speech-to-Text</span><span class="tag">MongoDB</span><span class="tag">Docker</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/AlvisYan2025/voiceq-a" target="_blank" rel="noopener" class="btn-text">GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                        </div>
                     </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    <a class="time-label">January 2024 - May 2024</a><br>
-                    ●CSCI-UA 467-002 Applied Internet Technology<br>
-                    ●Give timely feedback to student works and provide help via online platforms. <br>
+                </article>
 
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Javascript</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                </div>
-                <div class="project-links">
-                </div>
-            </div>
-            <div class="project-card" data-category="web">
-                <div class="project-header">
-                    <div class="project-title">
-                        <h3>Marketing Assistant Intern@Bondit Community Inc.</h3>
+                <article class="card project reveal" data-category="ml">
+                    <div class="card-top">
+                        <div>
+                            <h3>Quantitative Trading Project</h3>
+                        </div>
+                        <span class="status">Completed</span>
                     </div>
-                    <div class="project-status">Completed</div>
-                </div>
-                <div class="project-description">
-                    <a class="time-label">September 2023 - December 2023</a><br>
-                    ●Assisted in the development of a marketing plan for the company's application. <br>
-                    ●Sat with marketing team members to learn new tasks and determine
-                    best tactics for solving challenges. <br>
-                    ●Contributed to mock-ups, email campaigns, and social media content. <br>
+                    <p class="desc">A demo notebook for quantitative trading covering data filtering and preliminary portfolio management.</p>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/AlvisYan2025/tushare_analysis" target="_blank" rel="noopener" class="btn-text">GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                        </div>
+                    </div>
+                </article>
 
-                </div>
-                <div class="project-tech">
-                    <span class="tech-tag">Marketing/Communication</span>
-                </div>
-                <div class="project-links">
-                </div>
+                <article class="card project reveal" data-category="experience web">
+                    <div class="card-top">
+                        <div>
+                            <p class="org">NYU Courant</p>
+                            <h3>Teaching Assistant / Grader</h3>
+                            <p class="when">January 2024 — May 2024</p>
+                        </div>
+                        <span class="status">Completed</span>
+                    </div>
+                    <ul class="bullets">
+                        <li>CSCI-UA 467 — Applied Internet Technology.</li>
+                        <li>Gave timely feedback on student work and provided support through online platforms.</li>
+                    </ul>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Node.js</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card project reveal" data-category="experience">
+                    <div class="card-top">
+                        <div>
+                            <p class="org">Food Charity Network</p>
+                            <h3>Project Manager Intern / Volunteer</h3>
+                        </div>
+                        <span class="status">Completed</span>
+                    </div>
+                    <ul class="bullets">
+                        <li>Coordinated engineering teams building an app that connects local stores and food donors with charitable and non-profit organizations.</li>
+                        <li>Oversaw the development process: managed sprints, identified blockers and constraints, and tracked activities and changes.</li>
+                        <li>Planned quarterly board meetings and delivered presentations to stakeholders.</li>
+                    </ul>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Project Management</span><span class="tag">Communication</span><span class="tag">Excel</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card project reveal" data-category="experience">
+                    <div class="card-top">
+                        <div>
+                            <p class="org">Bondit Community Inc.</p>
+                            <h3>Marketing Assistant Intern</h3>
+                            <p class="when">September 2023 — December 2023</p>
+                        </div>
+                        <span class="status">Completed</span>
+                    </div>
+                    <ul class="bullets">
+                        <li>Assisted in developing a marketing plan for the company's application.</li>
+                        <li>Worked alongside the marketing team to learn new tasks and determine the best tactics for solving challenges.</li>
+                        <li>Contributed to mock-ups, email campaigns, and social media content.</li>
+                    </ul>
+                    <div class="card-foot">
+                        <div class="tags">
+                            <span class="tag">Marketing</span><span class="tag">Communication</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>© <span data-year>2026</span> Alvis Yan</span>
+            <div class="foot-links">
+                <a href="mailto:alvis.yan26@gmail.com">alvis.yan26@gmail.com</a>
+                <a href="index.html">Back home</a>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <script>
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    if (filter === 'all') {
-                        card.style.display = 'block';
-                        // Re-trigger animation
-                        card.style.animation = 'none';
-                        setTimeout(() => {
-                            card.style.animation = '';
-                        }, 10);
-                    } else {
-                        const categories = card.getAttribute('data-category').split(' ');
-                        if (categories.includes(filter)) {
-                            card.style.display = 'block';
-                            // Re-trigger animation
-                            card.style.animation = 'none';
-                            setTimeout(() => {
-                                card.style.animation = '';
-                            }, 10);
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }
-                });
-            });
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth - 0.5;
-            const mouseY = e.clientY / window.innerHeight - 0.5;
-            
-            const hero = document.querySelector('.projects-hero');
-            if (hero) {
-                hero.style.transform = `rotateY(${mouseX * 5}deg) rotateX(${-mouseY * 5}deg)`;
-            }
-            
-            document.querySelectorAll('.shape').forEach((shape, index) => {
-                const speed = (index + 1) * 2;
-                shape.style.transform += ` translateX(${mouseX * speed}px) translateY(${mouseY * speed}px)`;
-            });
-        });
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'none';
-                    setTimeout(() => {
-                        entry.target.style.animation = '';
-                    }, 10);
-                }
-            });
-        }, observerOptions);
-
-        projectCards.forEach(card => {
-            observer.observe(card);
-        });
-        //camera movements stuff 
-        let ticking = false;
-        function updateCameraAngle() {
-            const scrolled = window.pageYOffset;
-            const cards = document.querySelectorAll('.project-card');
-            
-            cards.forEach((card, index) => {
-                const rect = card.getBoundingClientRect();
-                const centerY = rect.top + rect.height / 2;
-                const windowCenterY = window.innerHeight / 2;
-                const distance = Math.abs(centerY - windowCenterY);
-                
-                if (distance < window.innerHeight) {
-                    const rotation = (centerY - windowCenterY) / window.innerHeight * 5;
-                    card.style.transform = `perspective(1000px) rotateX(${rotation}deg)`;
-                }
-            });
-            
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateCameraAngle);
-                ticking = true;
-            }
-        });
-
-        const cursorTrail = [];
-        const trailLength = 12;
-        let mouseX = 0;
-        let mouseY = 0;
-        let trailX = 0;
-        let trailY = 0;
-
-        for (let i = 0; i < trailLength; i++) {
-            const particle = document.createElement('div');
-            particle.className = `cursor-trail particle-${(i % 5) + 1}`;
-            particle.style.opacity = (trailLength - i) / trailLength * 0.6;
-            particle.style.transform = `translate(-50%, -50%) scale(${1 - i * 0.08})`;
-            document.documentElement.appendChild(particle);
-            cursorTrail.push({
-                element: particle,
-                x: 0,
-                y: 0,
-                targetX: 0,
-                targetY: 0
-            });
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        let isScrolling = false;
-        let scrollTimeout;
-
-        document.addEventListener('wheel', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            isScrolling = true;
-            
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                isScrolling = false;
-            }, 150);
-        });
-
-        document.addEventListener('scroll', () => {
-            isScrolling = true;
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                isScrolling = false;
-                if (mouseX !== 0 || mouseY !== 0) {
-                    trailX = mouseX;
-                    trailY = mouseY;
-                    
-                    cursorTrail.forEach((particle, index) => {
-                        particle.x = mouseX;
-                        particle.y = mouseY;
-                        particle.targetX = mouseX;
-                        particle.targetY = mouseY;
-                    });
-                }
-            }, 150);
-        }, true);
-
-        function animateTrail() {
-            if (isScrolling) {
-                trailX = mouseX;
-                trailY = mouseY;
-                
-                cursorTrail.forEach((particle, index) => {
-                    particle.x = mouseX;
-                    particle.y = mouseY;
-                    particle.targetX = mouseX;
-                    particle.targetY = mouseY;
-
-                    const scale = 1 - (index / trailLength) * 0.5;
-                    const opacity = (trailLength - index) / trailLength * 0.6;
-                    
-                    particle.element.style.left = particle.x + 'px';
-                    particle.element.style.top = particle.y + 'px';
-                    particle.element.style.opacity = opacity;
-                    particle.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
-                });
-            } else {
-                trailX += (mouseX - trailX) * 0.4;
-                trailY += (mouseY - trailY) * 0.4;
-
-                cursorTrail.forEach((particle, index) => {
-                    if (index === 0) {
-                        particle.targetX = trailX;
-                        particle.targetY = trailY;
-                    } else {
-                        const prevParticle = cursorTrail[index - 1];
-                        particle.targetX += (prevParticle.x - particle.targetX) * 0.6;
-                        particle.targetY += (prevParticle.y - particle.targetY) * 0.6;
-                    }
-
-                    particle.x += (particle.targetX - particle.x) * 0.7;
-                    particle.y += (particle.targetY - particle.y) * 0.7;
-
-                    const scale = 1 - (index / trailLength) * 0.5;
-                    const opacity = (trailLength - index) / trailLength * 0.6;
-                    
-                    particle.element.style.left = particle.x + 'px';
-                    particle.element.style.top = particle.y + 'px';
-                    particle.element.style.opacity = opacity;
-                    particle.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
-                });
-            }
-
-            requestAnimationFrame(animateTrail);
-        }
-
-        document.addEventListener('mouseleave', () => {
-            cursorTrail.forEach(particle => {
-                particle.element.style.opacity = '0';
-            });
-        });
-
-        document.addEventListener('mouseenter', () => {
-            cursorTrail.forEach((particle, index) => {
-                particle.element.style.opacity = (trailLength - index) / trailLength * 0.6;
-            });
-        });
-
-        animateTrail();
-    </script>
+    <script src="public/main.js" defer></script>
 </body>
 </html>

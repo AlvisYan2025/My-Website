@@ -3,540 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alvis' Secret Base</title>
+    <title>Alvis Yan — Software Engineer & ML</title>
+    <meta name="description" content="Alvis (Haoyu) Yan — software development engineer at Xenon Health and Cornell M.Eng. in Computer Science (Machine Learning), building full-stack, ML, and agentic AI systems.">
+    <meta name="theme-color" content="#0b0d12">
     <link rel="icon" type="image/svg+xml" href="icon.svg">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" href="icon.png">
-    <link rel="apple-touch-icon" href="icon.png">
-    <link rel="stylesheet" type="text/css" href="public/style.css">
-    <style>
-        /* Ensure cursor trail z-index and pointer-events */
-        .cursor-trail {
-            pointer-events: none !important;
-            z-index: 9999 !important;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/style.css">
 </head>
 <body>
-    <!-- Floating Shapes -->
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="ambient" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
     </div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">A.Y.</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Exprience/Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <header class="nav" id="navbar">
+        <div class="container nav-inner">
+            <a href="#home" class="wordmark" aria-label="Alvis Yan, home">
+                <span class="mark"></span>
+                <span>Alvis Yan</span>
+            </a>
+            <nav class="nav-links" id="nav-links" aria-label="Primary">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+                <a href="projects.html" class="nav-cta">Projects</a>
+            </nav>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Alvis Yan</h1>
-            <p>Engineer & CS student @ Cornell</p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="#about" class="cta-button">
-                    <span>About Me</span>
-                </a>
-                <a href="Resume_New.pdf" class="cta-button" download>
-                    <span>Get My Latest Resume</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Hello! This is Alvis! </h3>
-                    <p>I graduated as an undergrad from NYU with a degree in computer science and economics. I will be studying at Cornell University for a graduate program in computer science, with a concentration in machine learning. 
-
-                        As a software engineer, I'm mostly familiar with Python and JavaScript, with proficiency in React.js, Next.js, Express, Flask, and other commonly used tools in web development and software engineering. I'm also good at data analysis and statistics in economics. I'm ready to collaborate with teams of engineers and computer scientists and contribute to large projects/software products.</p>
-                </div>
-                <div class="skill-bars">
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>Python</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90"></div>
-                        </div>
+    <main id="main">
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="container">
+                <div class="hero-inner">
+                    <p class="eyebrow reveal"><span>Software Engineer</span><span class="dash"></span><span>Machine Learning</span></p>
+                    <h1 class="reveal" style="--delay: 80ms">
+                        <span class="line">Alvis Yan</span>
+                        <span class="line"><em>builds</em> thoughtful software.</span>
+                    </h1>
+                    <p class="lede reveal" style="--delay: 160ms">Software Development Engineer at Xenon Health, building healthcare operations platforms and agentic AI assistants. Cornell M.Eng. in Computer Science, concentrating in machine learning.</p>
+                    <div class="actions reveal" style="--delay: 240ms">
+                        <a href="Resume_New.pdf" class="btn btn-primary" download>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+                            Download Résumé
+                        </a>
+                        <a href="#about" class="btn btn-ghost">About me</a>
                     </div>
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>Javascript</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>React</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">
-                            <span>Machine Learning</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
+                    <div class="hero-meta reveal" style="--delay: 320ms">
+                        <span><i></i>SDE @ Xenon Health</span>
+                        <span><i></i>Cornell · M.Eng. CS</span>
+                        <span><i></i>NYU · B.A. CS & Economics</span>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="#projects" class="cta-button">
-                    <span>My Works</span>
-                </a>
-            </div>
-        </div>
-    </section>
+            <div class="scroll-cue" aria-hidden="true">Scroll</div>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Experience/Projects</h2>
-            <div class="projects-carousel-wrapper">
-                <button class="carousel-arrow carousel-arrow-left" aria-label="Previous">
-                    <span>←</span>
-                </button>
-                <div class="projects-carousel-viewport">
-                    <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Software Engineer/Machine Learning Engineer Intern@EyeSpace LLC.</h3>
-                        <p>●Design and engage in building a platform for ophthalmologists to manage patients' data and reservations.<br>
-                            ●Built deep learning models to predict vault sizes (the space or distance between a contact lens or intraocular lens and the cornea) with OCT images (a kind of X-ray scan of a patient's eyeballs). Achieved around 90% prediction accuracy within 400 microns for Resnet based models. <br>
-                            ●Develop, optimize, and maintain company's web application (https://iclvaultapi.streamlit.app/).<br>
-                        </p>
-                        <div class="project-tech" style="color: gold;">
-                            <span>JavaScript • HTML • Pytorch • Transfer Learning • TensorFlow • Keras </span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>Software Engineer Intern@XenonHealth</h3>
-                        <p>
-                            ●Developed a medical record extraction system with a team of engineers that extracts information from medical records (such as billing, payments, and patient information). <br>
-                            ●Analyzed, conducted benchmarking experiments on, and optimized the machine learning pipeline that handles payment information extraction from PDF files. Implemented a filtering-extraction two-phase pipeline with automated accuracy tests. Achieved 100% accuracy on a 481-page test set in the latest design. <br>
-                            ●Added both front-end and back-end features for billing claim creation, review and submission. Enabled end-to-end claim processing within the platform.  <br>
-                        </p>
-                        <div class="project-tech" style="color: gold;">
-                            <span>Backend Development • PostgreSQL • Docker • React</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>Project Manager Intern/Volunteer@Food Charity Network</h3>
-                        <p>
-                            ●Coordinated engineering teams to build an application to connect local stores and food donors to local charitable and non-profit organizations. <br>
-                            ●Oversaw the development process, manage sprints, identified blockers and constraints, and tracked all activities and changes using Excel. <br>
-                            ●Planned quarterly board meetings, prepared and delivered quarterly presentations to stakeholders using Google Slides. <br>
-                        </p>
-                        <div class="project-tech" style="color: gold;">
-                            <span>Project Management • Communication • Excel</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>Could Be Your Company!</h3>
-                        <p>Check links below to connect with me!</p>
-                        <div class="project-tech" style="color: gold;">
-                            <span></span>
-                        </div>
-                    </div>
+        <!-- About -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="eyebrow"><span class="num">01</span><span class="dash"></span>About</p>
+                        <h2>Hello, I'm Alvis.</h2>
                     </div>
                 </div>
-                <button class="carousel-arrow carousel-arrow-right" aria-label="Next">
-                    <span>→</span>
-                </button>
+                <div class="about-grid">
+                    <div class="about-copy reveal">
+                        <p>I'm a Software Development Engineer at Xenon Health in Jersey City, where I build an end-to-end operations platform used by finance, billing, and recruiting teams and more than 200 anesthesia providers, along with multi-channel agentic assistants built on LangGraph.</p>
+                        <p class="muted">I completed my M.Eng. in Computer Science at Cornell with a concentration in machine learning, after a B.A. in Computer Science and Economics at NYU. My work spans production ML pipelines, geospatial and medical-imaging models, and cloud-native full-stack systems on AWS and Azure. My economics background gives me a strong footing in data analysis and quantitative research.</p>
+                        <div class="edu">
+                            <div class="edu-item">
+                                <span class="when">2025 — 2026</span>
+                                <span class="what">Cornell University <small>M.Eng. Computer Science · Machine Learning · GPA 4.1/4.3</small></span>
+                            </div>
+                            <div class="edu-item">
+                                <span class="when">2021 — 2025</span>
+                                <span class="what">New York University <small>B.A. Computer Science & Economics · GPA 3.9/4.0</small></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills reveal" style="--delay: 120ms">
+                        <p class="skills-title">Toolkit</p>
+                        <div class="skill-group">
+                            <p class="skill-label">Languages</p>
+                            <div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">Go</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">R</span></div>
+                        </div>
+                        <div class="skill-group">
+                            <p class="skill-label">ML / AI</p>
+                            <div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">LangChain / LangGraph</span></div>
+                        </div>
+                        <div class="skill-group">
+                            <p class="skill-label">Systems / Cloud</p>
+                            <div class="tags"><span class="tag">CUDA</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">PostgreSQL</span></div>
+                        </div>
+                        <div class="skill-group">
+                            <p class="skill-label">Web</p>
+                            <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">FastAPI</span><span class="tag">Quart</span><span class="tag">Streamlit</span></div>
+                        </div>
+                        <div class="skill-group">
+                            <p class="skill-label">Relevant coursework</p>
+                            <p class="skill-courses">Advanced Machine Learning Systems · Cloud Computing & ML Hosting · Deep Learning · Algorithms</p>
+                        </div>
+                        <div class="skills-foot">
+                            <a href="#experience" class="btn-text">
+                                My works
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="#contact" class="cta-button">
-                    <span>Get In Touch →</span>
-                </a>
-                <a href="projects.html" class="cta-button">
-                    <span>More Projects →</span>
-                </a>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="eyebrow"><span class="num">02</span><span class="dash"></span>Experience</p>
+                        <h2>Where I've worked.</h2>
+                        <p class="lede">Health-tech platforms, agentic AI, geospatial ML, and medical imaging.</p>
+                    </div>
+                    <div class="carousel-controls">
+                        <div class="carousel-dots" aria-hidden="true"></div>
+                        <button class="arrow carousel-prev" aria-label="Previous">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
+                        </button>
+                        <button class="arrow carousel-next" aria-label="Next">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="carousel reveal">
+                    <div class="carousel-track" tabindex="0" aria-label="Experience carousel">
+                        <article class="card">
+                            <div>
+                                <p class="org">Xenon Health · Jersey City, NJ</p>
+                                <h3>Software Development Engineer</h3>
+                                <p class="when">August 2026 — Present · On-site</p>
+                            </div>
+                            <ul class="bullets">
+                                <li>Built an end-to-end healthcare provider operations platform with RBAC, covering scheduling, appointment confirmation, status tracking, invoicing, and payment tracking.</li>
+                                <li>Used by finance, billing, and recruiting teams and more than 200 anesthesia providers.</li>
+                                <li>Developed a multi-channel agentic assistant with LangGraph across web and email for provider support, status checks, and workflow actions; deployed on AWS.</li>
+                            </ul>
+                            <div class="card-foot">
+                                <div class="tags">
+                                    <span class="tag">React</span><span class="tag">Go</span><span class="tag">LangGraph</span><span class="tag">AWS</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <div>
+                                <p class="org">Xenon Health · Jersey City, NJ</p>
+                                <h3>Software Engineer Intern</h3>
+                                <p class="when">December 2025 — August 2026 · Hybrid</p>
+                            </div>
+                            <ul class="bullets">
+                                <li>Built an AI-OCR system to extract structured information from financial and billing PDFs.</li>
+                                <li>Optimized the production ML pipeline with a parallel multi-stage filtering–extraction workflow, reaching over 95% accuracy on a 481-page test set; deployed on Microsoft Azure.</li>
+                                <li>Built an agentic medical coding module (AIAMC) that cut manual review time by more than 50%.</li>
+                            </ul>
+                            <div class="card-foot">
+                                <div class="tags">
+                                    <span class="tag">React</span><span class="tag">Quart</span><span class="tag">OCR</span><span class="tag">Azure</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <div>
+                                <p class="org">Utilyze, Inc.</p>
+                                <h3>Machine Learning Engineer Intern</h3>
+                                <p class="when">December 2025 — May 2026 · Remote</p>
+                            </div>
+                            <ul class="bullets">
+                                <li>Led the predictive maps team building an interactive MapLibre platform and ingestion pipeline for outage, infrastructure, and weather data.</li>
+                                <li>Enabled real-time monitoring of 2,000+ critical infrastructure locations; shipped the MVP on Vercel.</li>
+                                <li>Developed a geospatial ML pipeline on NISAR L-band SAR imagery to investigate underground water-leak detection; deployed on AWS.</li>
+                            </ul>
+                            <div class="card-foot">
+                                <div class="tags">
+                                    <span class="tag">MapLibre</span><span class="tag">Geospatial ML</span><span class="tag">SAR Imagery</span><span class="tag">AWS</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="card">
+                            <div>
+                                <p class="org">Bimini Vision / EyeSpace LLC</p>
+                                <h3>Machine Learning Engineer Intern</h3>
+                                <p class="when">April 2024 — February 2025 · Remote</p>
+                            </div>
+                            <ul class="bullets">
+                                <li>Designed and evaluated PyTorch transfer-learning models that predict lens vault size from OCT eye scans of ~200 patients.</li>
+                                <li>Reached ~90% prediction accuracy within 400 microns with ResNet-based models.</li>
+                                <li>Built and maintained Streamlit full-stack apps for <a href="https://iclvaultapi.streamlit.app/" target="_blank" rel="noopener">model hosting and demos</a>.</li>
+                            </ul>
+                            <div class="card-foot">
+                                <div class="tags">
+                                    <span class="tag">PyTorch</span><span class="tag">Transfer Learning</span><span class="tag">ResNet</span><span class="tag">Streamlit</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <a href="#contact" class="card invite">
+                            <p class="org">Next</p>
+                            <h3>Could be <em>your</em> company.</h3>
+                            <p class="desc">Always happy to talk about interesting problems in ML, agentic systems, and software. Let's see what we could build together.</p>
+                            <span class="btn-text">
+                                Get in touch
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="actions reveal" style="margin-top: 48px;">
+                    <a href="#contact" class="btn btn-primary">Get in touch</a>
+                    <a href="projects.html" class="btn btn-ghost">
+                        All projects
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-head reveal">
+                    <p class="eyebrow"><span class="num">03</span><span class="dash"></span>Contact</p>
+                    <h2>Let's build <em>something</em>.</h2>
+                    <p class="lede">Whether it's a role, a collaboration, or just a conversation about ML and software — my inbox is open.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <a href="https://github.com/AlvisYan2025" target="_blank" rel="noopener" class="contact-card reveal">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </span>
+                        <span class="label">
+                            <span><strong>GitHub</strong><small>Check out my code</small></span>
+                            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/alvis-yan/" target="_blank" rel="noopener" class="contact-card reveal" style="--delay: 80ms">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </span>
+                        <span class="label">
+                            <span><strong>LinkedIn</strong><small>Let's connect professionally</small></span>
+                            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </span>
+                    </a>
+                    <a href="mailto:alvis.yan26@gmail.com" class="contact-card reveal" style="--delay: 160ms">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                        </span>
+                        <span class="label">
+                            <span><strong>Email</strong><small>Drop me a message</small></span>
+                            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </span>
+                    </a>
+                    <a href="https://AlvisYan.as.me/" target="_blank" rel="noopener" class="contact-card reveal" style="--delay: 240ms">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4m8-4v4"/></svg>
+                        </span>
+                        <span class="label">
+                            <span><strong>Schedule</strong><small>Book a chat with me</small></span>
+                            <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>© <span data-year>2026</span> Alvis Yan</span>
+            <div class="foot-links">
+                <a href="mailto:alvis.yan26@gmail.com">alvis.yan26@gmail.com</a>
+                <a href="#home">Back to top ↑</a>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-links">
-                <a href="https://github.com/AlvisYan2025" target="_blank" class="contact-card">
-                    <div class="contact-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h3>GitHub</h3>
-                        <p>Check out my code</p>
-                    </div>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/alvis-yan-69a194295/" target="_blank" class="contact-card">
-                    <div class="contact-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h3>LinkedIn</h3>
-                        <p>Let's connect professionally</p>
-                    </div>
-                </a>
-                
-                <a href="mailto:elvisyanhaoyu@gmail.com" class="contact-card">
-                    <div class="contact-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h3>Email</h3>
-                        <p>Drop me a message</p>
-                    </div>
-                </a>
-                <a href="https://AlvisYan.as.me/" target="_blank" class="contact-card">
-                    <div class="contact-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM7 12h5v5H7v-5z"/>
-                        </svg>
-                    </div>
-                    <div class="contact-info">
-                        <h3>Calendly</h3>
-                        <p>Schedule a chat with me!</p>
-                    </div>
-                </a>
-            </div>
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="#home" class="cta-button">
-                    <span>↑ Back to Top</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Projects Carousel
-        const projectsViewport = document.querySelector('.projects-carousel-viewport');
-        const projectsGrid = document.querySelector('.projects-grid');
-        const projectCards = document.querySelectorAll('.project-card');
-        const leftArrow = document.querySelector('.carousel-arrow-left');
-        const rightArrow = document.querySelector('.carousel-arrow-right');
-        
-        if (projectsViewport && projectsGrid && projectCards.length > 0 && leftArrow && rightArrow) {
-            const cardsPerView = 3;
-            const totalCards = projectCards.length;
-            
-            // Hide arrows if there are 3 or fewer cards
-            if (totalCards <= cardsPerView) {
-                leftArrow.style.display = 'none';
-                rightArrow.style.display = 'none';
-            } else {
-                let currentIndex = 0;
-                const maxIndex = Math.max(0, totalCards - cardsPerView);
-
-                function updateCarousel() {
-                    // Calculate the translateX value based on viewport width
-                    const viewportWidth = projectsViewport.offsetWidth;
-                    const gap = 30;
-                    const cardWidth = (viewportWidth - (cardsPerView - 1) * gap) / cardsPerView;
-                    const translateX = -currentIndex * (cardWidth + gap);
-                    projectsGrid.style.transform = `translateX(${translateX}px)`;
-                    
-                    // Ensure grid width is set to show all cards in a row
-                    const totalGridWidth = totalCards * cardWidth + (totalCards - 1) * gap;
-                    projectsGrid.style.width = `${totalGridWidth}px`;
-                    projectsGrid.style.gridTemplateColumns = `repeat(${totalCards}, ${cardWidth}px)`;
-
-                    // Update arrow states
-                    leftArrow.disabled = currentIndex === 0;
-                    rightArrow.disabled = currentIndex >= maxIndex;
-                }
-
-                leftArrow.addEventListener('click', () => {
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                        updateCarousel();
-                    }
-                });
-
-                rightArrow.addEventListener('click', () => {
-                    if (currentIndex < maxIndex) {
-                        currentIndex++;
-                        updateCarousel();
-                    }
-                });
-
-                // Initialize
-                updateCarousel();
-
-                // Handle window resize
-                let resizeTimeout;
-                window.addEventListener('resize', () => {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(() => {
-                        // Ensure currentIndex doesn't exceed maxIndex after resize
-                        if (currentIndex > maxIndex) {
-                            currentIndex = maxIndex;
-                        }
-                        updateCarousel();
-                    }, 250);
-                });
-            }
-        }
-
-        // Intersection Observer for camera movement effect
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                    
-                    // Animate skill bars when in view
-                    if (entry.target.querySelector('.skill-progress')) {
-                        entry.target.querySelectorAll('.skill-progress').forEach(bar => {
-                            const width = bar.getAttribute('data-width');
-                            setTimeout(() => {
-                                bar.style.width = width + '%';
-                            }, 200);
-                        });
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Observe contact links for animation
-        const contactLinks = document.querySelector('.contact-links');
-        if (contactLinks) {
-            observer.observe(contactLinks);
-        }
-
-        // Mouse movement parallax effect
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth - 0.5;
-            const mouseY = e.clientY / window.innerHeight - 0.5;
-            
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `rotateY(${mouseX * 10}deg) rotateX(${-mouseY * 10}deg)`;
-            }
-            
-            document.querySelectorAll('.shape').forEach((shape, index) => {
-                const speed = (index + 1) * 2;
-                shape.style.transform += ` translateX(${mouseX * speed}px) translateY(${mouseY * speed}px)`;
-            });
-        });
-
-        // Add some dynamic camera movement on scroll
-        let ticking = false;
-        function updateCameraAngle() {
-            const scrolled = window.pageYOffset;
-            const sections = document.querySelectorAll('.section');
-            
-            sections.forEach((section, index) => {
-                const rect = section.getBoundingClientRect();
-                const centerY = rect.top + rect.height / 2;
-                const windowCenterY = window.innerHeight / 2;
-                const distance = Math.abs(centerY - windowCenterY);
-                
-                if (distance < window.innerHeight) {
-                    const rotation = (centerY - windowCenterY) / window.innerHeight * 10;
-                    section.style.transform = `perspective(1000px) rotateX(${rotation}deg)`;
-                }
-            });
-            
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateCameraAngle);
-                ticking = true;
-            }
-        });
-
-        // ============================================
-        // FIXED CURSOR TRAIL - follows during scroll
-        // ============================================
-        const cursorTrail = [];
-        const trailLength = 12;
-        
-        // Current interpolated position (viewport coordinates for position:fixed)
-        let trailX = window.innerWidth / 2;
-        let trailY = window.innerHeight / 2;
-        
-        // Last known mouse position (viewport coordinates - from events)
-        let lastKnownMouseX = window.innerWidth / 2;
-        let lastKnownMouseY = window.innerHeight / 2;
-        
-        // Target position for the trail (viewport coordinates)
-        let targetX = trailX;
-        let targetY = trailY;
-
-        // Create trail particles
-        for (let i = 0; i < trailLength; i++) {
-            const particle = document.createElement('div');
-            particle.className = `cursor-trail particle-${(i % 5) + 1}`;
-            particle.style.opacity = (trailLength - i) / trailLength * 0.6;
-            particle.style.transform = `translate(-50%, -50%) scale(${1 - i * 0.08})`;
-            document.documentElement.appendChild(particle);
-            cursorTrail.push({
-                element: particle,
-                x: lastKnownMouseX,
-                y: lastKnownMouseY,
-                targetX: lastKnownMouseX,
-                targetY: lastKnownMouseY
-            });
-        }
-
-        // Track mouse position globally (viewport coordinates for position:fixed)
-        document.addEventListener('mousemove', (e) => {
-            lastKnownMouseX = e.clientX;
-            lastKnownMouseY = e.clientY;
-            targetX = e.clientX;
-            targetY = e.clientY;
-        });
-
-        // Update target during wheel scroll (has coordinates)
-        document.addEventListener('wheel', (e) => {
-            lastKnownMouseX = e.clientX;
-            lastKnownMouseY = e.clientY;
-            targetX = e.clientX;
-            targetY = e.clientY;
-        }, { passive: true });
-
-        // During scroll, aggressively keep particles aligned with mouse
-        document.addEventListener('scroll', () => {
-            targetX = lastKnownMouseX;
-            targetY = lastKnownMouseY;
-            
-            // Also immediately update trailX/trailY to reduce lag during scroll
-            trailX = lastKnownMouseX;
-            trailY = lastKnownMouseY;
-            
-            // Snap all particles closer to mouse position during scroll
-            cursorTrail.forEach((particle, index) => {
-                particle.targetX = lastKnownMouseX;
-                particle.targetY = lastKnownMouseY;
-                // Quickly interpolate toward mouse
-                particle.x += (lastKnownMouseX - particle.x) * 0.5;
-                particle.y += (lastKnownMouseY - particle.y) * 0.5;
-            });
-        }, true);
-
-        // Animation loop - always smooth, no special scroll handling needed
-        function animateTrail() {
-            // Smoothly interpolate the lead position toward target
-            trailX += (targetX - trailX) * 0.4;
-            trailY += (targetY - trailY) * 0.4;
-
-            // Update each particle
-            cursorTrail.forEach((particle, index) => {
-                if (index === 0) {
-                    // First particle follows the interpolated position
-                    particle.targetX = trailX;
-                    particle.targetY = trailY;
-                } else {
-                    // Each subsequent particle follows the one before it
-                    const prevParticle = cursorTrail[index - 1];
-                    particle.targetX += (prevParticle.x - particle.targetX) * 0.6;
-                    particle.targetY += (prevParticle.y - particle.targetY) * 0.6;
-                }
-
-                // Smooth movement toward target
-                particle.x += (particle.targetX - particle.x) * 0.7;
-                particle.y += (particle.targetY - particle.y) * 0.7;
-
-                // Calculate visual properties
-                const scale = 1 - (index / trailLength) * 0.5;
-                const opacity = (trailLength - index) / trailLength * 0.6;
-                
-                // Apply styles
-                particle.element.style.left = particle.x + 'px';
-                particle.element.style.top = particle.y + 'px';
-                particle.element.style.opacity = opacity;
-                particle.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
-            });
-
-            requestAnimationFrame(animateTrail);
-        }
-
-        // Handle mouse leaving/entering the window
-        document.addEventListener('mouseleave', () => {
-            cursorTrail.forEach(particle => {
-                particle.element.style.opacity = '0';
-            });
-        });
-
-        document.addEventListener('mouseenter', (e) => {
-            lastKnownMouseX = e.clientX;
-            lastKnownMouseY = e.clientY;
-            targetX = e.clientX;
-            targetY = e.clientY;
-            
-            cursorTrail.forEach((particle, index) => {
-                particle.element.style.opacity = (trailLength - index) / trailLength * 0.6;
-            });
-        });
-
-        // Start the animation
-        animateTrail();
-    </script>
+    <script src="public/main.js" defer></script>
 </body>
 </html>
